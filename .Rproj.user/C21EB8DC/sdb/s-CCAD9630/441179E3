@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "---\ntitle: \"homework4\"\nauthor: \"Joseph Cook\"\ndate: \"October 26, 2016\"\noutput: \n  html_document: \n    keep_md: yes\n---\n\n```{r setup, include=FALSE}\nknitr::opts_chunk$set(echo = TRUE)\n```\n#Normally distribution\n```{r normaldistribution}\n#First we need to setup the loops and create the normal distribution\nr <- 1000\nx <- rnorm(100)\nbootstrapmean <- numeric(r)\nhist(x)\n#As we can see are sample already follows a normal distribution and through the bootstrap we will return another example of normal distribution.  The power of the central limit theorem will be shown in the exponential distribution \n\n#Bootstrap using sample of 10 a 1000 times.\nfor (i in 1:r){\n  y <- sample(x,size= 10, replace = TRUE)\n  bootstrapmean[i] <- mean(y)\n}\n\nsummary(bootstrapmean)\nhist(bootstrapmean, ylim=c(0,350))\n\n#Bootstrap using sample of 50 a 1000 times.\nfor (i in 1:r){\n  y <- sample(x,size= 50 , replace = TRUE)\n  bootstrapmean[i] <- mean(y)\n}\n\nsummary(bootstrapmean)\nhist(bootstrapmean, ylim=c(0,350))\n```\n\n```{r expdistribution}\n#First we need to setup the loops and create the expontial distribution\nr <- 1000\nx <- rexp(100)\nbootstrapmean <- numeric(r)\nhist(x)\n#as we can see from the chart above this does not have anything close to a normal distibution.  However after taking samples we will generate a normal distibution of the means.  Thus providing evidence for the central limit theorem that the means are normally distributed\n\n#Bootstrap using sample of 10 a 1000 times.\nfor (i in 1:r){\n  y <- sample(x, size=10 , replace = TRUE)\n  bootstrapmean[i] <- mean(y)\n}\n\nsummary(bootstrapmean)\nhist(bootstrapmean, ylim=c(0,500))\n\n#Bootstrap using sample of 50 a 1000 times.\nfor (i in 1:r){\n  y <- sample(x,size=50, replace = TRUE)\n  bootstrapmean[i] <- mean(y)\n}\n\nsummary(bootstrapmean)\nhist(bootstrapmean, ylim=c(0,500))\n```\n",
+    "created" : 1477534602191.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "661261161",
+    "id" : "441179E3",
+    "lastKnownWriteTime" : 1477537229,
+    "last_content_update" : 1477537229052,
+    "path" : "~/MASTERS/DoingDataScience/homework4/bootstrap.Rmd",
+    "project_path" : "bootstrap.Rmd",
+    "properties" : {
+        "tempName" : "Untitled2"
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}

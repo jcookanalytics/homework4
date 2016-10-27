@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "#First we need to setup the loops and create the normal distribution\nr <- 1000\nx <- rnorm(100)\nbootstrapmean <- numeric(r)\n\n#Bootstrap using sample of 10 a 1000 times.\nfor (i in 1:r){\n  y <- sample(x,size=10, replace = TRUE)\n  bootstrapmean[i] <- mean(y)\n}\n\nsummary(bootstrapmean)\nhist(bootstrapmean, ylim=c(0,250))\n\n#Bootstrap using sample of 50 a 1000 times.\nfor (i in 1:r){\n  y <- sample(x,size=50, replace = TRUE)\n  bootstrapmean[i] <- mean(y)\n}\n\nsummary(bootstrapmean)\nhist(bootstrapmean, ylim=c(0,250))\n\n#First we need to setup the loops and create the expontential distribution\nr <- 1000\nx <- rexp(100, 0.2)\nbootstrapmean <- numeric(r)\n\n#Bootstrap using sample of 10 a 1000 times.\nfor (i in 1:r){\n  y <- sample(x,size= 10, replace = TRUE)\n  bootstrapmean[i] <- mean(y)\n}\n\nsummary(bootstrapmean)\nhist(bootstrapmean, ylim=c(0,500))\n\n#Bootstrap using sample of 50 a 1000 times.\nfor (i in 1:r){\n  y <- sample(x,size= 50, replace = TRUE)\n  bootstrapmean[i] <- mean(y)\n}\n\nsummary(bootstrapmean)\nhist(bootstrapmean, ylim=c(0,500))\n",
+    "created" : 1477521697442.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2825505921",
+    "id" : "A2A5C0AC",
+    "lastKnownWriteTime" : 1477536724,
+    "last_content_update" : 1477536724667,
+    "path" : "~/MASTERS/DoingDataScience/homework4/bootstrap.R",
+    "project_path" : "bootstrap.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

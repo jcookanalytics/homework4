@@ -1,0 +1,66 @@
+---
+title: "homework4"
+author: "Joseph Cook"
+date: "October 26, 2016"
+output: 
+  html_document: 
+    keep_md: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+#Normally distribution
+```{r normaldistribution}
+#First we need to setup the loops and create the normal distribution
+r <- 1000
+x <- rnorm(100)
+bootstrapmean <- numeric(r)
+hist(x)
+#As we can see are sample already follows a normal distribution and through the bootstrap we will return another example of normal distribution.  The power of the central limit theorem will be shown in the exponential distribution 
+
+#Bootstrap using sample of 10 a 1000 times.
+for (i in 1:r){
+  y <- sample(x,size= 10, replace = TRUE)
+  bootstrapmean[i] <- mean(y)
+}
+
+summary(bootstrapmean)
+hist(bootstrapmean, ylim=c(0,350))
+
+#Bootstrap using sample of 50 a 1000 times.
+for (i in 1:r){
+  y <- sample(x,size= 50 , replace = TRUE)
+  bootstrapmean[i] <- mean(y)
+}
+
+summary(bootstrapmean)
+hist(bootstrapmean, ylim=c(0,350))
+```
+
+```{r expdistribution}
+#First we need to setup the loops and create the expontial distribution
+r <- 1000
+x <- rexp(100)
+bootstrapmean <- numeric(r)
+hist(x)
+#as we can see from the chart above this does not have anything close to a normal distibution.  However after taking samples we will generate a normal distibution of the means.  Thus providing evidence for the central limit theorem that the means are normally distributed
+
+#Bootstrap using sample of 10 a 1000 times.
+for (i in 1:r){
+  y <- sample(x, size=10 , replace = TRUE)
+  bootstrapmean[i] <- mean(y)
+}
+
+summary(bootstrapmean)
+hist(bootstrapmean, ylim=c(0,500))
+
+#Bootstrap using sample of 50 a 1000 times.
+for (i in 1:r){
+  y <- sample(x,size=50, replace = TRUE)
+  bootstrapmean[i] <- mean(y)
+}
+
+summary(bootstrapmean)
+hist(bootstrapmean, ylim=c(0,500))
+```
